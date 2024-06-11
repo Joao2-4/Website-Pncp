@@ -1,0 +1,58 @@
+[
+    {
+        "codigoPaisFornecedor": "BRA",
+        "numeroControlePncpCompra": "46379400000150-1-002221/2023",
+        "orgaoSubRogado": null,
+        "orgaoEntidade": {
+            "cnpj": "46379400000150",
+            "poderId": "N",
+            "esferaId": "E",
+            "razaoSocial": "ESTADO DE SAO PAULO"
+        },
+        "anoContrato": 2024,
+        "tipoContrato": {
+            "id": 8,
+            "nome": "Outros"
+        },
+        "numeroContratoEmpenho": "001",
+        "dataAssinatura": "2024-01-26",
+        "dataVigenciaInicio": "2024-01-26",
+        "dataVigenciaFim": "2025-01-25",
+        "niFornecedor": "44734671002286",
+        "tipoPessoa": "PJ",
+        "categoriaProcesso": {
+            "id": 2,
+            "nome": "Compras"
+        },
+        "dataPublicacaoPncp": "2024-01-31T09:55:32",
+        "dataAtualizacao": "2024-01-31T09:55:33",
+        "sequencialContrato": 114,
+        "unidadeOrgao": {
+            "ufNome": "São Paulo",
+            "codigoUnidade": "986291",
+            "nomeUnidade": "PREFEITURA MUNICIPAL DE CAMPINAS/PS",
+            "ufSigla": "SP",
+            "municipioNome": "Campinas",
+            "codigoIbge": "3509502"
+        },
+        "informacaoComplementar": null,
+        "processo": "PMC.2023.00043622-36",
+        "unidadeSubRogada": null,
+        "nomeRazaoSocialFornecedor": "CRISTALIA PRODUTOS QUIMICOS FARMACEUTICOS LTDA",
+        "niFornecedorSubContratado": null,
+        "nomeFornecedorSubContratado": null,
+        "receita": false,
+        "tipoPessoaSubContratada": null,
+        "objetoContrato": "Registro de Preços de medicamentos em atendimento a Mandados Judiciais.",
+        "valorInicial": 1613943.9,
+        "numeroParcelas": 1,
+        "valorParcela": 1613943.9,
+        "valorGlobal": 1613943.9,
+        "valorAcumulado": null,
+        "numeroRetificacao": 0,
+        "identificadorCipi": null,
+        "urlCipi": null,
+        "numeroControlePNCP": "46379400000150-2-000114/2024",
+        "usuarioNome": "Compras.gov.br"
+    }
+]

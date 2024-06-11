@@ -7,8 +7,10 @@ import os
 import time
 from tqdm import tqdm
 from django.http import HttpRequest
+import random
 
-
+file_name = ""
+mensagem = ""
 
 # python manage.py runserver - CODIGO PARA RODAR SERVER
 
@@ -18,6 +20,8 @@ def format_date(date_str):
     return date_obj.strftime('%Y%m%d')
 
 def pncp3(data_inicial, data_final, tamanho_pagina, cod_municipio_ibge, esfera):
+    global file_name
+    global mensagem
     url = 'https://pncp.gov.br/api/consulta/v1/contratos'
     headers = {'accept': '*/*'}
     todos_os_registros = []
@@ -31,14 +35,16 @@ def pncp3(data_inicial, data_final, tamanho_pagina, cod_municipio_ibge, esfera):
     }
 
     try:
-        # Printar a query para depuração
-        print("Query parameters:", params)
-
         response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
         dados = response.json()
+        print("Dados recebidos:", dados)
+        total_paginas = dados['totalPaginas']
+        print("Total de páginas:", total_paginas)
         todos_os_registros.extend(dados['data'])
     except requests.exceptions.RequestException as e:
+        mensagem = (f"Erro ao fazer a requisição: {e}")
+        print(mensagem)
         return {'error': str(e)}
 
     # Filtrar os registros pela esfera especificada
@@ -47,8 +53,10 @@ def pncp3(data_inicial, data_final, tamanho_pagina, cod_municipio_ibge, esfera):
         if item['orgaoEntidade']['esferaId'] == esfera
     ]
 
-    templates_dir = os.path.join(os.path.dirname(__file__), 'templates/projetinhodjango')
-    file_path = os.path.join(templates_dir, 'data.json')
+    random_code = str(random.randint(1000, 9999))
+    file_name = f"data_{data_inicial}_{data_final}_{random_code}.json"
+    templates_dir = os.path.join(os.path.dirname(__file__), 'Arquivos_temp')
+    file_path = os.path.join(templates_dir, file_name)
 
     if not os.path.exists(templates_dir):
         os.makedirs(templates_dir)
@@ -61,6 +69,9 @@ def pncp3(data_inicial, data_final, tamanho_pagina, cod_municipio_ibge, esfera):
 
 
 def proposta_codigo(data_final_formatada, tamanho_pagina, modalidade, esfera):
+    global file_name
+    global mensagem
+
     url = 'https://pncp.gov.br/api/consulta/v1/contratacoes/proposta'
     headers = {'accept': '*/*'}
     todos_os_registros = []
@@ -76,20 +87,25 @@ def proposta_codigo(data_final_formatada, tamanho_pagina, modalidade, esfera):
         response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
         dados = response.json()
-        print(dados)
+        print("Dados recebidos:", dados)
         total_paginas = dados['totalPaginas']
-        print(total_paginas)
+        print("Total de páginas:", total_paginas)
         todos_os_registros.extend(dados['data'])
     except requests.exceptions.RequestException as e:
+        mensagem = (f"Erro ao fazer a requisição: {e}")
+        print(mensagem)
         return {'error': str(e)}
+
 
     registros_filtrados = [
         item for item in todos_os_registros
         if item['orgaoEntidade']['esferaId'] == esfera
     ]
-
-    templates_dir = os.path.join(os.path.dirname(__file__), 'templates/projetinhodjango')
-    file_path = os.path.join(templates_dir, 'data.json')
+    
+    random_code = str(random.randint(1000, 9999))
+    file_name = f"data_{data_final_formatada}_{random_code}.json"
+    templates_dir = os.path.join(os.path.dirname(__file__), 'Arquivos_Temp')
+    file_path = os.path.join(templates_dir, file_name)
 
     if not os.path.exists(templates_dir):
         os.makedirs(templates_dir)
@@ -97,10 +113,11 @@ def proposta_codigo(data_final_formatada, tamanho_pagina, modalidade, esfera):
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(registros_filtrados, f, ensure_ascii=False, indent=4)
 
-    return registros_filtrados
-
+    return registros_filtrados  
 
 def pncp2(data_inicial, data_final, ModNovo, tamanho_pagina, cod_municipio_ibge, esfera):
+    global file_name
+    global mensagem
     url = 'https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao'
     headers = {'accept': '*/*'}
     todos_os_registros = []
@@ -118,11 +135,13 @@ def pncp2(data_inicial, data_final, ModNovo, tamanho_pagina, cod_municipio_ibge,
         response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
         dados = response.json()
+        print("Dados recebidos:", dados)
         total_paginas = dados['totalPaginas']
-        print(total_paginas)
-        print("Dados recebidos:", dados)  # Debug: verificar os dados recebidos
-        todos_os_registros.extend(dados.get('data', []))
+        print("Total de páginas:", total_paginas)
+        todos_os_registros.extend(dados['data'])
     except requests.exceptions.RequestException as e:
+        mensagem = (f"Erro ao fazer a requisição: {e}")
+        print(mensagem)
         return {'error': str(e)}
     
     registros_filtrados = [
@@ -130,8 +149,13 @@ def pncp2(data_inicial, data_final, ModNovo, tamanho_pagina, cod_municipio_ibge,
         if item['orgaoEntidade']['esferaId'] == esfera
     ]
 
-    templates_dir = os.path.join(os.path.dirname(__file__), 'templates\projetinhodjango')
-    file_path = os.path.join(templates_dir, 'data.json')
+    random_code = str(random.randint(1000, 9999))
+    file_name = f"data_{data_inicial}_{data_final}_{random_code}.json"
+    templates_dir = os.path.join(os.path.dirname(__file__), 'Arquivos_temp')
+    file_path = os.path.join(templates_dir, file_name)
+
+    if not os.path.exists(templates_dir):
+        os.makedirs(templates_dir)
 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(registros_filtrados, f, ensure_ascii=False, indent=4)
@@ -191,18 +215,21 @@ def pub(request):
         
     return render(request, 'projetinhodjango/pub.html')
 
-
-
-
 def ultimo(request: HttpRequest):
-   
     # Caminho para o arquivo JSON
-    json_file_path = 'C:\\Users\\joaovvs\\Desktop\\Pdjango\\projetinhodjango\\templates\\projetinhodjango\\data.json'
+    json_file_path = os.path.join('C:\\Users\\joaovvs\\Desktop\\Pdjango\\projetinhodjango\\Arquivos_temp', file_name)
     
-    # Lê o arquivo JSON de forma segura usando 'with'
-    with open(json_file_path, 'r', encoding='utf-8') as file:
-        data = json.load(file)
+    context = {}
+    
+    try:
+        # Tenta ler o arquivo JSON
+        with open(json_file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+            context['data'] = json.dumps(data, indent=4)
+    except FileNotFoundError:
+        # Se o arquivo não for encontrado, define a mensagem de erro
+        context['mensagem'] = mensagem
 
-    # Passa os dados para o template, já formatados em JSON
-    context = {'data': json.dumps(data, indent=4)}
     return render(request, 'projetinhodjango/arquivo_final.html', context)
+
+

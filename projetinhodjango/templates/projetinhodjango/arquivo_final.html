@@ -13,14 +13,19 @@
 </head>
 <body>
     <h1>Conteúdo do Arquivo JSON</h1>
-    <pre id="jsonContent">Carregando...</pre>
     
-    <script>
-        // Obtém os dados JSON passados pelo Django e os converte de volta para objeto JSON
-        var jsonData = JSON.parse('{{ data|escapejs }}');
+    {% if mensagem %}
+        <p>{{ mensagem }}</p>
+    {% else %}
+        <pre id="jsonContent">{{ data }}</pre>
+        <script>
+            // Obtém os dados JSON passados pelo Django e os converte de volta para objeto JSON
+            var jsonData = JSON.parse('{{ data|escapejs }}');
 
-        // Exibe os dados JSON de forma identada no elemento pre
-        document.getElementById('jsonContent').textContent = JSON.stringify(jsonData, null, 4);
-    </script>
+            // Exibe os dados JSON de forma identada no elemento pre
+            document.getElementById('jsonContent').textContent = JSON.stringify(jsonData, null, 4);
+        </script>
+    {% endif %}
+    
 </body>
 </html>

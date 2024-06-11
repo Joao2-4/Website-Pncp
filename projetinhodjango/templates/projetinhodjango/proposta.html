@@ -2,7 +2,6 @@
 <html lang="pt">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="contratos.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultar Contratos Vigentes</title>
@@ -112,6 +111,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+ 
         .title {
             text-align: center;
             margin-bottom: 20px;
@@ -163,7 +163,7 @@
             background-color: #4CAF50;
             color: #fff;
         }
- 
+   
     </style>
 </head>
 <body>
@@ -226,7 +226,7 @@
 
             <div class="buttons">
                 <button type="reset" class="clear-btn">Limpar</button>
-                <button type="submit" class="apply-btn" id="aplicar">Aplicar</button>
+                <button type="submit" class="apply-btn">Aplicar</button>
                 <button type="button" class="apply-btn" onclick="openJson()">Ler JSON</button>
             </div>
             <div id="carregando" class="escondido">
@@ -242,5 +242,6 @@
             </script>
         </form>
     </div>
+ 
 </body>
 </html>
