@@ -1,0 +1,51 @@
+[
+    {
+        "situacaoCompraNome": "Divulgada no PNCP",
+        "usuarioNome": "Novo BBMNET Licitações",
+        "modoDisputaNome": "Aberto",
+        "tipoInstrumentoConvocatorioCodigo": 1,
+        "modalidadeId": 6,
+        "srp": false,
+        "anoCompra": 2023,
+        "sequencialCompra": 9,
+        "orgaoSubRogado": null,
+        "orgaoEntidade": {
+            "cnpj": "42178699000124",
+            "razaoSocial": "Confederação Brasileira de Esgrima",
+            "poderId": "L",
+            "esferaId": "M"
+        },
+        "dataInclusao": "2023-12-20T20:02:14",
+        "dataPublicacaoPncp": "2023-12-20T20:02:14",
+        "dataAtualizacao": "2023-12-20T20:02:14",
+        "numeroCompra": "0102023|PR0102023",
+        "unidadeOrgao": {
+            "ufNome": "Rio de Janeiro",
+            "codigoUnidade": "2076",
+            "nomeUnidade": "CB Esgrima",
+            "ufSigla": "RJ",
+            "municipioNome": "Rio de Janeiro",
+            "codigoIbge": "3304557"
+        },
+        "amparoLegal": {
+            "codigo": 1,
+            "descricao": "pregão: modalidade de licitação obrigatória para aquisição de bens e serviços comuns",
+            "nome": "Lei 14.133/2021, Art. 28, I"
+        },
+        "dataAberturaProposta": "2023-12-29T09:00:00",
+        "dataEncerramentoProposta": "2024-01-04T14:00:00",
+        "informacaoComplementar": "",
+        "processo": "0102023",
+        "objetoCompra": "Sistema de Vales",
+        "linkSistemaOrigem": "",
+        "justificativaPresencial": "",
+        "unidadeSubRogada": null,
+        "valorTotalHomologado": null,
+        "modoDisputaId": 1,
+        "modalidadeNome": "Pregão - Eletrônico",
+        "numeroControlePNCP": "42178699000124-1-000009/2023",
+        "tipoInstrumentoConvocatorioNome": "Edital",
+        "situacaoCompraId": 1,
+        "valorTotalEstimado": 216000.0
+    }
+]
