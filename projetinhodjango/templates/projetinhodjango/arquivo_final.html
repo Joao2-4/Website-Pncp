@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador JSON</title>
+    <style>
+        /* Aumenta o tamanho da fonte para o conteúdo JSON */
+        #jsonContent {
+            font-size: 1.5em; /* Ajuste o valor conforme necessário */
+        }
+    </style>
+</head>
+<body>
+    <h1>Conteúdo do Arquivo JSON</h1>
+    <pre id="jsonContent">Carregando...</pre>
+    
+    <script>
+        // Obtém os dados JSON passados pelo Django e os converte de volta para objeto JSON
+        var jsonData = JSON.parse('{{ data|escapejs }}');
+
+        // Exibe os dados JSON de forma identada no elemento pre
+        document.getElementById('jsonContent').textContent = JSON.stringify(jsonData, null, 4);
+    </script>
+</body>
+</html>
