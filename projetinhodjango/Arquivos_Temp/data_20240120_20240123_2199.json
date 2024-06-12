@@ -1,0 +1,51 @@
+[
+    {
+        "modalidadeId": 6,
+        "srp": false,
+        "anoCompra": 2024,
+        "sequencialCompra": 3,
+        "orgaoSubRogado": null,
+        "orgaoEntidade": {
+            "cnpj": "29737103000110",
+            "poderId": "L",
+            "esferaId": "M",
+            "razaoSocial": "Serviço de Apoio às Micro e Pequenas Empresas do Estado do Rio de Janeiro"
+        },
+        "dataInclusao": "2024-01-22T20:00:34",
+        "dataPublicacaoPncp": "2024-01-22T20:00:34",
+        "dataAtualizacao": "2024-01-22T20:00:34",
+        "numeroCompra": "03/2024|03/2024",
+        "unidadeOrgao": {
+            "ufNome": "Rio de Janeiro",
+            "codigoUnidade": "1037",
+            "nomeUnidade": "SEBRAE/RJ",
+            "ufSigla": "RJ",
+            "municipioNome": "Rio de Janeiro",
+            "codigoIbge": "3304557"
+        },
+        "amparoLegal": {
+            "codigo": 1,
+            "descricao": "pregão: modalidade de licitação obrigatória para aquisição de bens e serviços comuns",
+            "nome": "Lei 14.133/2021, Art. 28, I"
+        },
+        "dataAberturaProposta": "2024-01-25T10:00:00",
+        "dataEncerramentoProposta": "2024-01-30T09:00:00",
+        "informacaoComplementar": "",
+        "processo": "03/2024",
+        "objetoCompra": "Mobiliários",
+        "linkSistemaOrigem": "",
+        "justificativaPresencial": "",
+        "unidadeSubRogada": null,
+        "valorTotalHomologado": null,
+        "valorTotalEstimado": 22685.0,
+        "modalidadeNome": "Pregão - Eletrônico",
+        "modoDisputaNome": "Aberto-Fechado",
+        "tipoInstrumentoConvocatorioCodigo": 1,
+        "tipoInstrumentoConvocatorioNome": "Edital",
+        "modoDisputaId": 3,
+        "numeroControlePNCP": "29737103000110-1-000003/2024",
+        "situacaoCompraId": 1,
+        "situacaoCompraNome": "Divulgada no PNCP",
+        "usuarioNome": "Novo BBMNET Licitações"
+    }
+]
