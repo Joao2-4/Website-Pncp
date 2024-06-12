@@ -5,6 +5,8 @@ urlpatterns = [
     path('', views.consulta_view, name='home'),  # Defina a view para a URL raiz
     path('pub', views.pub , name='pub'),  # Defina a view para a URL raiz
     path('proposta', views.proposta , name='proposta'),
-    path('final', views.ultimo , name='final')
+    path('final', views.ultimo , name='final'),
+    path('manual', views.pdf_view , name='manual')
+
 
 ]

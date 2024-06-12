@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, FileResponse
 import json
 import requests
 from datetime import datetime, timedelta
@@ -83,20 +83,33 @@ def proposta_codigo(data_final_formatada, tamanho_pagina, modalidade, esfera):
         'codigoModalidadeContratacao': modalidade
     }
 
-    try:
-        response = requests.get(url, params=params, headers=headers)
-        response.raise_for_status()
-        dados = response.json()
-        print("Dados recebidos:", dados)
-        total_paginas = dados['totalPaginas']
-        print("Total de páginas:", total_paginas)
-        todos_os_registros.extend(dados['data'])
-    except requests.exceptions.RequestException as e:
-        mensagem = (f"Erro ao fazer a requisição: {e}")
+    max_attempts = 5
+    attempts = 0
+
+    while attempts < max_attempts:
+        try:
+            response = requests.get(url, params=params, headers=headers)
+            response.raise_for_status()
+            dados = response.json()
+            print("Dados recebidos:", dados)
+            todos_os_registros.extend(dados['data'])
+            break
+        except requests.exceptions.RequestException as e:
+            attempts += 1
+            if response.status_code == 500:
+                print(f"Erro 500 - tentativa {attempts} de {max_attempts}. Tentando novamente após 5 segundos.")
+                time.sleep(5)
+                continue
+            mensagem = f"Erro ao fazer a requisição: {e}"
+            print(mensagem)
+            return {'error': str(e)}
+
+    if attempts == max_attempts:
+        mensagem = "Número máximo de tentativas atingido. A requisição falhou."
         print(mensagem)
-        return {'error': str(e)}
+        return {'error': mensagem}
 
-
+    # Filtra os registros pela esfera
     registros_filtrados = [
         item for item in todos_os_registros
         if item['orgaoEntidade']['esferaId'] == esfera
@@ -113,7 +126,7 @@ def proposta_codigo(data_final_formatada, tamanho_pagina, modalidade, esfera):
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(registros_filtrados, f, ensure_ascii=False, indent=4)
 
-    return registros_filtrados  
+    return registros_filtrados
 
 def pncp2(data_inicial, data_final, ModNovo, tamanho_pagina, cod_municipio_ibge, esfera):
     global file_name
@@ -244,4 +257,6 @@ def ultimo(request: HttpRequest):
 
     return render(request, 'projetinhodjango/arquivo_final.html', context)
 
-
+def pdf_view(request):
+    pdf_path = os.path.join(os.path.dirname(__file__), 'Dados_func', 'manual.pdf')
+    return FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')

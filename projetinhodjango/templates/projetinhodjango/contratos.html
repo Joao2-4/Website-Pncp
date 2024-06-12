@@ -189,7 +189,7 @@
         <div class="services-container">
             <div class="service-button">
                 <i class="fa fa-file-o"></i>
-                <a href="/static/manual.pdf" download="manual.pdf"><span>Manual da API</span></a>         
+                <span class="api-link" onclick="openPdf()">Manual da API</span>
             </div>
             <div class="service-button">
                 <i class="fa fa-gears"></i>
@@ -252,13 +252,15 @@
             
             <div id="carregando" class="loader escondido"></div>
             <div id="mensagem"></div>
-            
             <script>
-
 
                 function openJson() {
                     // Redirecionar para a página que irá exibir o JSON
                     window.location.href = 'final';
+                }
+                function openPdf() {
+                    // Redirecionar para o PDF em uma nova aba
+                    window.open('{% url "manual" %}', '_blank');
                 }
             </script>
         </form>

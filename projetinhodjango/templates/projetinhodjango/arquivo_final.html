@@ -5,9 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizador JSON</title>
     <style>
-        /* Aumenta o tamanho da fonte para o conteúdo JSON */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #4a90e2;
+        }
+
         #jsonContent {
-            font-size: 1.5em; /* Ajuste o valor conforme necessário */
+            font-size: 1.2em; /* Ajuste o valor conforme necessário */
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #e74c3c;
+            background-color: #f9f9f9;
+            border: 1px solid #e74c3c;
+            padding: 10px 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            #jsonContent {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
