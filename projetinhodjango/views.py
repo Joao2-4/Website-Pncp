@@ -12,7 +12,7 @@ import random
 file_name = ""
 mensagem = ""
 
-# python manage.py runserver - CODIGO PARA RODAR SERVER
+# python manage.py runserver - CODIGO PARA RODAR SERVER #
 
 
 def format_date(date_str):
