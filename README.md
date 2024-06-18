@@ -11,8 +11,9 @@
 # 📊 Consulta e Filtragem de Dados da API PNCP via WEBSITE 📊
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue)](https://www.python.org/)
+![Django](https://img.shields.io/badge/Django-Framework-green)
 [![Requests](https://img.shields.io/badge/Requests-Consulta%20a%20API-orange)](https://requests.readthedocs.io/en/master/)
-![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![Frontend](https://img.shields.io/badge/HTML,CSS,JS-Frontend-pink)
 
 </div>
 
