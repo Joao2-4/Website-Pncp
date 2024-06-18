@@ -11,8 +11,8 @@
 # 📊 Consulta e Filtragem de Dados da API PNCP via WEBSITE 📊
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue)](https://www.python.org/)
-![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 [![Requests](https://img.shields.io/badge/Requests-Consulta%20a%20API-orange)](https://requests.readthedocs.io/en/master/)
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 
 </div>
 
@@ -25,8 +25,9 @@ Este repositório contém um script Python para consultar e filtrar dados da API
 - **Consulta à API PNCP:** Realiza solicitações à API para obter dados de contratos públicos.
 - **Filtragem de Dados:** Permite filtrar os dados com base na esfera e na sigla do estado.
 - **Salvamento de Dados:** Salva os dados filtrados em um arquivo JSON para referência futura.
+- **Leitura dos Dados:** Permite realizar a leitura dos dados diretamente do Website.
 
-## Como Utilizar
+## Como Utilizar(PRECISA ALTERAR)
 
 1. Clone este repositório para o seu ambiente local.
 2. Instale as dependências listadas no arquivo requirements.txt usando `pip install -r requirements.txt`.
