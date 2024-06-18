@@ -8,7 +8,7 @@
 
 <div align="center">
 
-# 📊 Consulta e Filtragem de Dados da API PNCP 📊
+# 📊 Consulta e Filtragem de Dados da API PNCP via WEBSITE 📊
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue)](https://www.python.org/)
 [![Tkinter](https://img.shields.io/badge/Tkinter-Interface%20Gr%C3%A1fica-green)](https://docs.python.org/3/library/tkinter.html)
